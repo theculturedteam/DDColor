@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn.functional as F
 from tqdm import tqdm
 
-from ddcolor_model import DDColor
+from .ddcolor_model import DDColor
 
 
 class ImageColorizationPipeline:
@@ -85,6 +85,15 @@ def main():
             cv2.imwrite(os.path.join(args.output, file_name), image_out)
         else:
             print(f"Failed to read {img_path}")
+
+def ddcolor(
+    pretrained=False,
+    model_dir="../experiments/pretrained_models/modelscope/damo/cv_ddcolor_image-colorization",
+):
+    model_path = os.path.join(model_dir, "pytorch_model.pt")
+    model = ImageColorizationPipeline(model_path=model_path).model
+
+    return model
 
 
 if __name__ == '__main__':
