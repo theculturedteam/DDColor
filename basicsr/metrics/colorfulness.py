@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from basicsr.utils.registry import METRIC_REGISTRY
+from models.archs.colorizers.ddcolor.basicsr.utils.registry import METRIC_REGISTRY
 
 
 @METRIC_REGISTRY.register()

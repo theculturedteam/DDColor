@@ -5,16 +5,16 @@ from os import path as osp
 from tqdm import tqdm
 import numpy as np
 
-from basicsr.archs import build_network
-from basicsr.losses import build_loss
-from basicsr.metrics import calculate_metric
-from basicsr.utils import get_root_logger, imwrite, tensor2img
-from basicsr.utils.img_util import tensor_lab2rgb
-from basicsr.utils.dist_util import master_only
-from basicsr.utils.registry import MODEL_REGISTRY
+from models.archs.colorizers.ddcolor.basicsr.archs import build_network
+from models.archs.colorizers.ddcolor.basicsr.losses import build_loss
+from models.archs.colorizers.ddcolor.basicsr.metrics import calculate_metric
+from models.archs.colorizers.ddcolor.basicsr.utils import get_root_logger, imwrite, tensor2img
+from models.archs.colorizers.ddcolor.basicsr.utils.img_util import tensor_lab2rgb
+from models.archs.colorizers.ddcolor.basicsr.utils.dist_util import master_only
+from models.archs.colorizers.ddcolor.basicsr.utils.registry import MODEL_REGISTRY
 from .base_model import BaseModel
-from basicsr.metrics.custom_fid import INCEPTION_V3_FID, get_activations, calculate_activation_statistics, calculate_frechet_distance
-from basicsr.utils.color_enhance import color_enhacne_blend
+from models.archs.colorizers.ddcolor.basicsr.metrics.custom_fid import INCEPTION_V3_FID, get_activations, calculate_activation_statistics, calculate_frechet_distance
+from models.archs.colorizers.ddcolor.basicsr.utils.color_enhance import color_enhacne_blend
 
 
 @MODEL_REGISTRY.register()

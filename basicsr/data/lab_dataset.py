@@ -5,10 +5,10 @@ import numpy as np
 import torch
 from torch.utils import data as data
 
-from basicsr.data.transforms import rgb2lab
-from basicsr.utils import FileClient, get_root_logger, imfrombytes, img2tensor
-from basicsr.utils.registry import DATASET_REGISTRY
-from basicsr.data.fmix import sample_mask
+from models.archs.colorizers.ddcolor.basicsr.data.transforms import rgb2lab
+from models.archs.colorizers.ddcolor.basicsr.utils import FileClient, get_root_logger, imfrombytes, img2tensor
+from models.archs.colorizers.ddcolor.basicsr.utils.registry import DATASET_REGISTRY
+from models.archs.colorizers.ddcolor.basicsr.data.fmix import sample_mask
 
 
 @DATASET_REGISTRY.register()
