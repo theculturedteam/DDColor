@@ -71,7 +71,9 @@ class DDColor(nn.Module):
 
         if self.do_normalize:
             out = self.denormalize(out)
-        return out, nn.functional.interpolate(out_feat, size=(128, 256, 256), mode='trilinear', align_corners=False)
+
+        out_feat = self.out_feat_proj(out_feat)  # → [B, 128, H, W]
+        return out, out_feat 
 
 
 class ImageEncoder(nn.Module):
