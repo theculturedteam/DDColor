@@ -64,7 +64,7 @@ class DDColor(nn.Module):
 
         if self.do_normalize:
             out = self.denormalize(out)
-        return out, out_feat
+        return out, coarse_input
 
 
 class ImageEncoder(nn.Module):
