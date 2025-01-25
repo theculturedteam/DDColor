@@ -64,7 +64,7 @@ class DDColor(nn.Module):
 
         if self.do_normalize:
             out = self.denormalize(out)
-        return out, out_feat
+        return out, nn.functional.interpolate(out_feat, size=(128, 256, 256), mode='trilinear', align_corners=False)
 
 
 class ImageEncoder(nn.Module):
