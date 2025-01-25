@@ -47,6 +47,13 @@ class DDColor(nn.Module):
         self.register_buffer('mean', torch.Tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1))
         self.register_buffer('std', torch.Tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1))
 
+        # Projection layer: 100 → 128 channels
+        self.out_feat_proj = nn.Conv2d(
+            in_channels=num_queries,  # 100 (matches pretrained)
+            out_channels=128,         # Desired output
+            kernel_size=1
+        )
+
     def normalize(self, img):
         return (img - self.mean) / self.std
 
