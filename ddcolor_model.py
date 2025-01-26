@@ -54,6 +54,12 @@ class DDColor(nn.Module):
             kernel_size=1
         )
 
+        # Add model_out equivalent to SIGGRAPH's
+        self.model_out = nn.Sequential(
+            nn.Conv2d(128, 2, kernel_size=1, padding=0, stride=1, bias=True),
+            nn.Tanh()
+        )
+
     def normalize(self, img):
         return (img - self.mean) / self.std
 
@@ -73,7 +79,7 @@ class DDColor(nn.Module):
             out = self.denormalize(out)
 
         out_feat = self.out_feat_proj(out_feat)  # → [B, 128, H, W]
-        return out, out_feat 
+        return out, out_feat  # `out` is RGB, `out_feat` is 128-channel features
 
 
 class ImageEncoder(nn.Module):
